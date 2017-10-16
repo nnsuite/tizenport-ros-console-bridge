@@ -19,23 +19,23 @@ BuildRequires:  pkg-config
 A ROS-independent package for logging that seamlessly pipes into 
 rosconsole/rosout for ROS-dependent packages.
 
-%package -n     lib%{srcname}%{sover}
+%package -n     lib%{name}%{sover}
 Summary:        C++ library for %{prjname}
 Group:          System/Libraries
 Provides:       lib%{name}%{sover} = %{version}
 
-%description -n lib%{srcname}%{sover}
+%description -n lib%{name}%{sover}
 A ROS-independent package for logging that seamlessly pipes into 
 rosconsole/rosout for ROS-dependent packages.
 
 This package contains the shared library.
 
-%package        devel
+%package -n     lib%{name}-devel
 Summary:        Development files for %{prjname}
 Group:          Development/Libraries/C and C++
-Requires:       lib%{name}%{sover} = %{version}
+Requires:       lib%{name}%{name} = %{version}
 
-%description    devel
+%description -n lib%{name}-devel
 A ROS-independent package for logging that seamlessly pipes into 
 rosconsole/rosout for ROS-dependent packages.
 
@@ -57,15 +57,15 @@ make %{?_smp_mflags}
 %install
 %make_install
 
-%post -n lib%{srcname}%{sover} -p /sbin/ldconfig
-%postun -n lib%{srcname}%{sover} -p /sbin/ldconfig
+%post -n lib%{name}%{sover} -p /sbin/ldconfig
+%postun -n lib%{name}%{sover} -p /sbin/ldconfig
 
-%files -n lib%{srcname}%{sover}
+%files -n lib%{name}%{sover}
 %manifest %{name}.manifest
 %defattr(-,root,root)
 %{_libdir}/lib%{srcname}.so.*
 
-%files devel
+%files -n lib%{name}-devel
 %manifest %{name}.manifest
 %defattr(-,root,root)
 %{_includedir}/
