@@ -33,7 +33,7 @@ This package contains the shared library.
 %package -n     lib%{name}-devel
 Summary:        Development files for %{prjname}
 Group:          Development/Libraries/C and C++
-Requires:       lib%{name}%{name} = %{version}
+Requires:       lib%{name}%{sover} = %{version}
 
 %description -n lib%{name}-devel
 A ROS-independent package for logging that seamlessly pipes into 
