@@ -23,6 +23,7 @@ rosconsole/rosout for ROS-dependent packages.
 Summary:        C++ library for %{prjname}
 Group:          System/Libraries
 Provides:       lib%{name}%{sover} = %{version}
+Provides:	lib%{name} = %{version}
 
 %description -n lib%{name}%{sover}
 A ROS-independent package for logging that seamlessly pipes into 
